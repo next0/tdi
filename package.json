@@ -1,0 +1,41 @@
+{
+  "name": "tdi",
+  "version": "0.0.1",
+  "description": "Typed dependency injection",
+  "author": "next0",
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc -p .",
+    "example:car": "tsc -p . && node ./build/es5/examples/car/index.js",
+    "test": "mocha --compilers ts:ts-node/register",
+    "tslint": "tslint -c tslint.json -s node_modules/tslint-stylish -t stylish '{lib,examples,test}/**/*.ts'"
+  },
+  "tags": [
+    "di",
+    "dependency",
+    "injection",
+    "container",
+    "typescript"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/next0/tdi.git"
+  },
+  "bugs": {
+    "url": "https://github.com/next0/tdi/issues"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@types/chai": "^3.5.2",
+    "@types/es6-promise": "0.0.32",
+    "@types/mocha": "^2.2.41",
+    "@types/node": "^7.0.21",
+    "chai": "^3.5.0",
+    "mocha": "^3.4.1",
+    "reflect-metadata": "^0.1.9",
+    "ts-node": "^3.0.4",
+    "tslint": "^5.2.0",
+    "tslint-stylish": "^2.1.0",
+    "typescript": "^2.3.2"
+  }
+}
