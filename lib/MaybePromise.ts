@@ -1,7 +1,7 @@
 export type ChainFunction<T, U> = (value: T) => U | Thenable<U>;
 
 function isAsync<T>(obj: any): obj is Thenable<T> {
-    return (obj && typeof obj.then === 'function');
+    return Boolean(obj && typeof obj.then === 'function');
 }
 
 function unwrap(value: any) {
@@ -27,10 +27,18 @@ export class MaybePromise<T> implements Thenable<T> {
             );
         }
 
-        if (error && fail) {
-            return this.handle(fail, error);
-        } else if (success) {
-            return this.handle(success, payload);
+        if (error) {
+            if (fail) {
+                return this.handle(fail, error);
+            }
+
+            return MaybePromise.reject(error);
+        } else {
+            if (success) {
+                return this.handle(success, payload);
+            }
+
+            return MaybePromise.reject(<U> (<any> error));
         }
     }
 

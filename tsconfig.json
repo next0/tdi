@@ -10,6 +10,9 @@
     "noImplicitAny": true,
     "declaration": true
   },
+  "include": [
+    "lib/**/*"
+  ],
   "exclude": [
     "build",
     "node_modules"

@@ -54,4 +54,45 @@ describe('MaybePromise', function () {
         });
     });
 
+    it('should throw error', function () {
+        const maybePromise = MaybePromise.resolve(0)
+            .then((value) => value + 1)
+            .then((value) => {
+                if (value === 1) {
+                    throw new Error('invalid input value');
+                }
+
+                return value + 2;
+            })
+            .then((value) => value + 3)
+            .then((value) => value + 4);
+
+        const unwrap = maybePromise.unwrap.bind(maybePromise);
+
+        expect(maybePromise.isAsync()).to.equal(false);
+        expect(unwrap).to.throw(Error);
+    });
+
+    it('should support catch error', function () {
+        const maybePromise = MaybePromise.resolve(0)
+            .then((value) => value + 1)
+            .then((value) => {
+                if (value === 1) {
+                    throw new Error('invalid input value');
+                }
+
+                return value + 2;
+            })
+            .then((value) => value + 3)
+            .catch(() => 0)
+            .then((value) => value + 5);
+
+        expect(maybePromise.isAsync()).to.equal(false);
+        expect(maybePromise.unwrap()).to.equal(5);
+
+        return maybePromise.then((value: number) => {
+            expect(value).to.equal(5);
+        });
+    });
+
 });
