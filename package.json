@@ -1,6 +1,6 @@
 {
   "name": "stdi",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Typed dependency injection",
   "author": "next0",
   "license": "MIT",
