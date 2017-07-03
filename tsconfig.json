@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
-    "outDir": "build/es5",
-    "target": "es5",
+    "outDir": "build/es2015",
+    "target": "es2015",
     "module": "commonjs",
     "moduleResolution": "node",
     "emitDecoratorMetadata": true,

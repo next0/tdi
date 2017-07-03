@@ -4,8 +4,8 @@
   "description": "Typed dependency injection",
   "author": "next0",
   "license": "MIT",
-  "main": "build/es5/index.js",
-  "types": "build/es5/index.d.ts",
+  "main": "build/es2015/index.js",
+  "types": "build/es2015/index.d.ts",
   "scripts": {
     "build": "tsc -p .",
     "example:car": "ts-node ./examples/car/index.ts",
@@ -31,7 +31,6 @@
   "dependencies": {},
   "devDependencies": {
     "@types/chai": "^3.5.2",
-    "@types/es6-promise": "0.0.32",
     "@types/mocha": "^2.2.41",
     "@types/node": "^7.0.21",
     "chai": "^3.5.0",

@@ -1,3 +1,4 @@
+export type Thenable<T> = PromiseLike<T>;
 export type ChainFunction<T, U> = (value: T) => U | Thenable<U>;
 
 function isAsync<T>(obj: any): obj is Thenable<T> {
